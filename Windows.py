@@ -9,3 +9,6 @@ def get_file_names(directory_path):
     names = os.listdir(directory_path)
     names = natsorted(names)
     return names
+
+def rename_file(src, dst):
+    os.rename(src, dst)

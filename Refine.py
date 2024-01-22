@@ -1,8 +1,11 @@
-from Windows import get_file_names
+from Windows import get_file_names, rename_file
 
-directory_path = 'D:\\Valerian\\Coding\\Python\\Personal Projects\\Index Shifter\\SongTest'
+directory_path = input('Enter the Folder Location : ')
 file_names = get_file_names(directory_path)
-for i in range(len(file_names)):
-    new_file_name = str(i+1).zfill(3) + ' ' + file_names[i].split(maxsplit=1)[1]
-    print(new_file_name)
-    
+
+zFill = int(input('Enter the Number of Digits : '))
+
+for index, file_name in enumerate(file_names):
+    old_file_name = directory_path + '\\' + file_name
+    new_file_name = directory_path + '\\' + str(index+1).zfill(zFill) + ' ' + file_name.split(maxsplit=1)[1]
+    rename_file(old_file_name, new_file_name)
